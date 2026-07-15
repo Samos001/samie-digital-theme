@@ -30,24 +30,14 @@
 
         <!-- Desktop Navigation -->
         <nav class="sd-nav" aria-label="Primary Navigation">
-            <?php
-            wp_nav_menu( array(
-                'theme_location' => 'primary',
-                'container'      => false,
-                'menu_class'     => 'sd-nav__list',
-                'walker'         => new Samie_Nav_Walker(),
-                'fallback_cb'    => function() {
-                    echo '<ul class="sd-nav__list">
-                        <li><a href="' . home_url('/') . '" class="sd-nav-link">Home</a></li>
-                        <li><a href="' . home_url('/about') . '" class="sd-nav-link">About</a></li>
-                        <li><a href="' . home_url('/services') . '" class="sd-nav-link">Services</a></li>
-                        <li><a href="' . home_url('/portfolio') . '" class="sd-nav-link">Portfolio</a></li>
-                        <li><a href="' . home_url('/blog') . '" class="sd-nav-link">Blog</a></li>
-                        <li><a href="' . home_url('/contact') . '" class="sd-nav-link">Contact</a></li>
-                    </ul>';
-                },
-            ) );
-            ?>
+            <ul class="sd-nav__list">
+                <li><a href="<?php echo esc_url( home_url('/') ); ?>" class="sd-nav-link <?php echo is_front_page() ? 'active' : ''; ?>">Home</a></li>
+                <li><a href="<?php echo esc_url( home_url('/about') ); ?>" class="sd-nav-link <?php echo is_page('about') ? 'active' : ''; ?>">About</a></li>
+                <li><a href="<?php echo esc_url( home_url('/services') ); ?>" class="sd-nav-link <?php echo is_page('services') ? 'active' : ''; ?>">Services</a></li>
+                <li><a href="<?php echo esc_url( home_url('/portfolio') ); ?>" class="sd-nav-link <?php echo is_page('portfolio') ? 'active' : ''; ?>">Portfolio</a></li>
+                <li><a href="<?php echo esc_url( home_url('/blog') ); ?>" class="sd-nav-link <?php echo is_home() ? 'active' : ''; ?>">Blog</a></li>
+                <li><a href="<?php echo esc_url( home_url('/contact') ); ?>" class="sd-nav-link <?php echo is_page('contact') ? 'active' : ''; ?>">Contact</a></li>
+            </ul>
         </nav>
 
         <!-- CTA Button -->
