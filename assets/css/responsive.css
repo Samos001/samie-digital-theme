@@ -1,0 +1,357 @@
+/* ============================================================
+   SAMIE DIGITAL — RESPONSIVE.CSS
+   Mobile first breakpoints
+   768px  — Tablet
+   480px  — Mobile
+   ============================================================ */
+
+
+/* ------------------------------------------------------------
+   TABLET — max-width: 1024px
+   ------------------------------------------------------------ */
+@media (max-width: 1024px) {
+
+    /* Navigation */
+    .sd-nav {
+        display: none;
+    }
+
+    .sd-hamburger {
+        display: flex;
+    }
+
+    /* Hero */
+    .sd-hero__inner {
+        grid-template-columns: 1fr;
+        gap: var(--space-8);
+        text-align: center;
+    }
+
+    .sd-hero__content {
+        align-items: center;
+    }
+
+    .sd-hero__subtitle {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .sd-hero__btns {
+        justify-content: center;
+    }
+
+    .sd-hero__trust {
+        justify-content: center;
+    }
+
+    .sd-hero__visual {
+        justify-content: center;
+    }
+
+    .sd-hero__card {
+        max-width: 480px;
+    }
+
+    /* Why Us */
+    .sd-why__inner {
+        grid-template-columns: 1fr;
+        gap: var(--space-6);
+    }
+
+    .sd-why__list {
+        padding-top: 0;
+    }
+
+    /* Process */
+    .sd-process__step {
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    gap: var(--space-2);
+    text-align: left;
+    align-items: start;
+    background: var(--color-white);
+    border: 1.5px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-3);
+}
+
+.sd-process__step .sd-process__num {
+    margin: 0;
+    width: 40px;
+    height: 40px;
+    font-size: var(--text-base);
+    flex-shrink: 0;
+}
+
+.sd-process__step .sd-process__title {
+    font-size: var(--text-base);
+    margin-bottom: 4px;
+    margin-top: 8px;
+}
+
+.sd-process__step .sd-process__desc {
+    font-size: var(--text-sm);
+    grid-column: 1 / -1;
+}
+    /* Portfolio */
+    .sd-grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Team */
+    .sd-grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Footer */
+    .sd-footer__grid {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-6);
+    }
+
+}
+
+
+/* ------------------------------------------------------------
+   MOBILE — max-width: 768px
+   ------------------------------------------------------------ */
+@media (max-width: 768px) {
+
+    /* Global section padding */
+    .sd-section {
+        padding-top: var(--space-8);
+        padding-bottom: var(--space-8);
+    }
+
+    .sd-section--lg {
+        padding-top: var(--space-10);
+        padding-bottom: var(--space-10);
+    }
+
+    /* Typography */
+    .sd-section-title {
+        font-size: clamp(24px, 6vw, 32px);
+    }
+
+    .sd-section-subtitle {
+        font-size: var(--text-base);
+    }
+
+    /* Hero */
+    .sd-hero {
+        padding: var(--space-10) 0 var(--space-8);
+        min-height: auto;
+    }
+
+    .sd-hero__title {
+        font-size: clamp(28px, 8vw, 40px);
+    }
+
+    .sd-hero__subtitle {
+        font-size: var(--text-base);
+    }
+
+    .sd-hero__btns {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .sd-hero__btns .sd-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .sd-hero__trust {
+        flex-direction: column;
+        align-items: center;
+        gap: var(--space-1);
+    }
+
+    /* Hide hero visual card on mobile */
+    .sd-hero__visual {
+        display: none;
+    }
+
+    /* Clients bar */
+    .sd-clients__logos {
+        gap: 0;
+    }
+
+    .sd-client-logo {
+        padding: 8px 16px;
+        font-size: 11px;
+    }
+
+    /* Services grid */
+    .sd-grid-3 {
+        grid-template-columns: 1fr;
+    }
+
+    /* Stats grid */
+    .sd-stats-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    /* Process */
+    .sd-process__steps {
+        grid-template-columns: 1fr;
+        gap: var(--space-3);
+    }
+
+    .sd-process__step {
+        display: grid;
+        grid-template-columns: 48px 1fr;
+        gap: var(--space-2);
+        text-align: left;
+        align-items: start;
+    }
+
+    .sd-process__num {
+        margin: 0;
+        width: 40px;
+        height: 40px;
+        font-size: var(--text-base);
+    }
+
+    /* Team grid */
+    .sd-grid-4 {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    /* CTA section */
+    .sd-cta-section {
+        padding: var(--space-10) 0;
+    }
+
+    .sd-cta__btns {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .sd-cta__btns .sd-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* Footer */
+    .sd-footer__grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-5);
+    }
+
+    .sd-footer__bottom-inner {
+        flex-direction: column;
+        text-align: center;
+        gap: var(--space-1);
+    }
+
+    .sd-footer__tagline {
+        max-width: 100%;
+    }
+
+}
+
+
+/* ------------------------------------------------------------
+   SMALL MOBILE — max-width: 480px
+   ------------------------------------------------------------ */
+@media (max-width: 480px) {
+
+    /* Container padding */
+    .sd-container {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    /* Nav */
+    --nav-height: 60px;
+
+    .sd-logo__name {
+        font-size: var(--text-base);
+    }
+
+    .sd-logo__icon {
+        width: 30px;
+        height: 30px;
+        font-size: 12px;
+    }
+
+    /* Hero */
+    .sd-hero__title {
+        font-size: clamp(24px, 8vw, 34px);
+    }
+
+    .sd-hero__trust {
+        gap: var(--space-1);
+    }
+
+    .sd-trust-item {
+        font-size: 12px;
+    }
+
+    /* Stats */
+    .sd-stats-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .sd-stat-box__number {
+        font-size: var(--text-4xl);
+    }
+
+    /* Team — single column on very small screens */
+    .sd-grid-4 {
+        grid-template-columns: 1fr;
+    }
+
+    /* FAQ */
+    .sd-faq__question {
+        font-size: var(--text-sm);
+        padding: var(--space-2) var(--space-3);
+    }
+
+    /* Footer */
+    .sd-footer__top {
+        padding: var(--space-8) 0 var(--space-5);
+    }
+
+    .sd-social-link {
+        width: 34px;
+        height: 34px;
+    }
+
+    /* Buttons */
+    .sd-btn {
+        padding: 13px 22px;
+        font-size: var(--text-sm);
+    }
+
+    .sd-btn--lg {
+        font-size: var(--text-base);
+        padding: 14px 24px;
+    }
+
+}
+
+
+/* ------------------------------------------------------------
+   PRINT STYLES
+   ------------------------------------------------------------ */
+@media print {
+    .sd-header,
+    .sd-hamburger,
+    .sd-mobile-menu,
+    .sd-cta-section,
+    .sd-footer__social {
+        display: none !important;
+    }
+
+    body {
+        padding-top: 0;
+        color: #000;
+    }
+
+    a {
+        color: #000;
+        text-decoration: underline;
+    }
+}
