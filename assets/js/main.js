@@ -226,3 +226,65 @@ if (filterBtns.length > 0) {
         });
     });
 }
+
+// -------------------------------------------------------
+// 9. CONTACT FORM AJAX SUBMISSION
+// -------------------------------------------------------
+const contactForm = document.getElementById('sd-contact-form');
+
+if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const feedback  = document.getElementById('sd-form-message');
+        const btnText   = contactForm.querySelector('.sd-btn-text');
+        const btnLoad   = contactForm.querySelector('.sd-btn-loading');
+        const submitBtn = contactForm.querySelector('.sd-contact-submit');
+
+        // Show loading state
+        btnText.style.display  = 'none';
+        btnLoad.style.display  = 'inline';
+        submitBtn.disabled     = true;
+        feedback.style.display = 'none';
+        feedback.className     = 'sd-form-feedback';
+
+        const formData = new FormData();
+        formData.append('action',  'samie_contact');
+        formData.append('nonce',   contactForm.querySelector('[name="nonce"]').value);
+        formData.append('name',    contactForm.querySelector('[name="name"]').value);
+        formData.append('email',   contactForm.querySelector('[name="email"]').value);
+        formData.append('phone',   contactForm.querySelector('[name="phone"]').value || '');
+        formData.append('company', contactForm.querySelector('[name="company"]').value || '');
+        formData.append('service', contactForm.querySelector('[name="service"]').value);
+        formData.append('budget',  contactForm.querySelector('[name="budget"]').value || '');
+        formData.append('message', contactForm.querySelector('[name="message"]').value);
+        formData.append('source',  contactForm.querySelector('[name="source"]').value || '');
+
+        fetch(samieData.ajaxUrl, {
+            method: 'POST',
+            body: formData,
+        })
+        .then(function(response) { return response.json(); })
+        .then(function(data) {
+            feedback.style.display = 'block';
+            if (data.success) {
+                feedback.classList.add('success');
+                feedback.textContent = data.data.message;
+                contactForm.reset();
+            } else {
+                feedback.classList.add('error');
+                feedback.textContent = data.data.message;
+            }
+        })
+        .catch(function() {
+            feedback.style.display = 'block';
+            feedback.classList.add('error');
+            feedback.textContent = 'Something went wrong. Please email us directly at hello@samiedigital.com';
+        })
+        .finally(function() {
+            btnText.style.display = 'inline';
+            btnLoad.style.display = 'none';
+            submitBtn.disabled    = false;
+        });
+    });
+}
