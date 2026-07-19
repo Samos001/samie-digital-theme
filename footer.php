@@ -9,8 +9,7 @@
                 <!-- Column 1 — Brand -->
                 <div class="sd-footer__brand">
                     <a href="<?php echo esc_url( home_url('/') ); ?>" class="sd-footer__logo">
-                        <span class="sd-logo__icon">SD</span>
-                        <span class="sd-logo__name">Samie Digital</span>
+                        <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/logo/Samie-Logo2.png' ); ?>" alt="Samie Digital" style="height:40px; width:auto; display:block;">
                     </a>
                     <p class="sd-footer__tagline">
                         Premium web design, branding, and digital marketing for businesses ready to grow. Serving clients worldwide from our remote-first team.

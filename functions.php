@@ -47,7 +47,7 @@ function samie_enqueue_assets() {
     // --- Google Fonts ---
     wp_enqueue_style(
         'samie-google-fonts',
-        'https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap',
+         'https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Open+Sans:wght@400;500;600;700&display=swap',
         array(),
         null
     );
@@ -266,4 +266,5 @@ function samie_organization_schema() {
     );
     echo '<script type="application/ld+json">' . wp_json_encode( $schema ) . '</script>' . "\n";
 }
+
 add_action( 'wp_head', 'samie_organization_schema' );

@@ -16,16 +16,9 @@
 <header class="sd-header" id="sd-header">
     <div class="sd-header__inner">
 
-        <!-- Logo -->
+       <!-- Logo -->
         <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="sd-logo" aria-label="Samie Digital Home">
-            <?php if ( has_custom_logo() ) :
-                the_custom_logo();
-            else : ?>
-                <div class="sd-logo__text">
-                    <span class="sd-logo__icon">SD</span>
-                    <span class="sd-logo__name">Samie Digital</span>
-                </div>
-            <?php endif; ?>
+            <img id="site-logo" src="<?php echo esc_url( get_template_directory_uri() . '/assets/logo/Samie-Logo.png' ); ?>" alt="Samie Digital" data-default-src="<?php echo esc_url( get_template_directory_uri() . '/assets/logo/Samie-Logo.png' ); ?>" data-scrolled-src="<?php echo esc_url( get_template_directory_uri() . '/assets/logo/Samie-Logo2.png' ); ?>">
         </a>
 
         <!-- Desktop Navigation -->
@@ -33,7 +26,17 @@
             <ul class="sd-nav__list">
                 <li><a href="<?php echo esc_url( home_url('/') ); ?>" class="sd-nav-link <?php echo is_front_page() ? 'active' : ''; ?>">Home</a></li>
                 <li><a href="<?php echo esc_url( home_url('/about') ); ?>" class="sd-nav-link <?php echo is_page('about') ? 'active' : ''; ?>">About</a></li>
-                <li><a href="<?php echo esc_url( home_url('/services') ); ?>" class="sd-nav-link <?php echo is_page('services') ? 'active' : ''; ?>">Services</a></li>
+                <li class="sd-nav-item sd-nav-item--has-dropdown">
+                    <a href="<?php echo esc_url( home_url('/services') ); ?>" class="sd-nav-link <?php echo is_page('services') ? 'active' : ''; ?>">Services</a>
+                    <ul class="sd-nav-dropdown" aria-label="Services">
+                        <li><a href="<?php echo esc_url( home_url('/services') ); ?>">Web Design</a></li>
+                        <li><a href="<?php echo esc_url( home_url('/services') ); ?>">WordPress Development</a></li>
+                        <li><a href="<?php echo esc_url( home_url('/services') ); ?>">Graphic Design</a></li>
+                        <li><a href="<?php echo esc_url( home_url('/services') ); ?>">Branding &amp; Logo Design</a></li>
+                        <li><a href="<?php echo esc_url( home_url('/services') ); ?>">Digital Marketing</a></li>
+                        <li><a href="<?php echo esc_url( home_url('/services') ); ?>">Digital Consulting</a></li>
+                    </ul>
+                </li>
                 <li><a href="<?php echo esc_url( home_url('/portfolio') ); ?>" class="sd-nav-link <?php echo is_page('portfolio') ? 'active' : ''; ?>">Portfolio</a></li>
                 <li><a href="<?php echo esc_url( home_url('/blog') ); ?>" class="sd-nav-link <?php echo is_home() ? 'active' : ''; ?>">Blog</a></li>
                 <li><a href="<?php echo esc_url( home_url('/contact') ); ?>" class="sd-nav-link <?php echo is_page('contact') ? 'active' : ''; ?>">Contact</a></li>
@@ -42,15 +45,26 @@
 
         <!-- CTA Button -->
         <div class="sd-header__actions">
-            <a href="<?php echo esc_url( home_url( '/contact' ) ); ?>" class="sd-btn sd-btn--primary">
-                Book a Free Call
+            <a href="<?php echo esc_url( home_url( '/contact' ) ); ?>" class="sd-btn sd-btn--primary sd-header__cta">
+                Book a Call
             </a>
+            <button class="sd-search-toggle" id="sd-search-toggle" type="button" aria-label="Open search" aria-expanded="false" aria-controls="sd-search-panel">
+                <span class="sd-search-toggle__icon" aria-hidden="true"></span>
+            </button>
             <!-- Mobile Menu Toggle -->
             <button class="sd-hamburger" id="sd-hamburger" aria-label="Toggle Menu" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
+        </div>
+
+        <div class="sd-search-panel" id="sd-search-panel" hidden>
+            <form class="sd-search-form" role="search" method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+                <label class="sd-sr-only" for="sd-search-input">Search the site</label>
+                <input id="sd-search-input" type="search" name="s" placeholder="Search..." required>
+                <button type="submit">Search</button>
+            </form>
         </div>
 
     </div>
@@ -66,10 +80,11 @@
                 <li><a href="<?php echo home_url('/blog'); ?>" class="sd-mobile-link">Blog</a></li>
                 <li><a href="<?php echo home_url('/contact'); ?>" class="sd-mobile-link">Contact</a></li>
             </ul>
-            <a href="<?php echo home_url('/contact'); ?>" class="sd-btn sd-btn--primary sd-mobile-cta">
-                Book a Free Call
+            <a href="<?php echo home_url('/contact'); ?>" class="sd-btn sd-btn--primary sd-mobile-cta sd-header__cta">
+                Book a Call
             </a>
         </nav>
     </div>
 </header>
+
 <!-- ========== END NAVIGATION ========== -->

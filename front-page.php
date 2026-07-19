@@ -18,12 +18,12 @@ get_header();
                     Trusted by 50+ Businesses Worldwide
                 </div>
                 <h1 class="sd-hero__title">
-                    We Build Websites That
-                    <span class="sd-text-orange">Win Clients</span>,
+                    We Build Websites<br> 
+                    That <span class="sd-text-orange">Win Clients</span>,<br>
                     Not Just Awards.
                 </h1>
                 <p class="sd-hero__subtitle">
-                    Samie Digital is a full-service creative agency specializing in web design, branding, and digital marketing for small businesses and startups across the US, UK, and Canada.
+                    Samie Digital is a full-service creative agency specializing in web design, and graphic design for small businesses and startups across the US, UK, Canada and Nigeria.
                 </p>
                 <div class="sd-hero__btns">
                     <a href="<?php echo esc_url( home_url('/contact') ); ?>" class="sd-btn sd-btn--primary sd-btn--lg">

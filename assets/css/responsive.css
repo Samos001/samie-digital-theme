@@ -263,8 +263,30 @@
         padding-right: 16px;
     }
 
+    .sd-header__inner {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .sd-header__actions {
+        gap: 4px;
+    }
+
+    .sd-header__cta {
+        padding: 10px 12px;
+        font-size: 12px;
+    }
+
+    .sd-search-toggle,
+    .sd-hamburger {
+        width: 36px;
+        height: 36px;
+    }
+
     /* Nav */
-    --nav-height: 60px;
+    :root {
+        --nav-height: 60px;
+    }
 
     .sd-logo__name {
         font-size: var(--text-base);
@@ -331,7 +353,6 @@
     }
 
 }
-
 
 /* ------------------------------------------------------------
    PRINT STYLES

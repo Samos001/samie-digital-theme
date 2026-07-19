@@ -195,3 +195,34 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 });
+
+// -------------------------------------------------------
+// 8. PORTFOLIO FILTER
+// -------------------------------------------------------
+const filterBtns = document.querySelectorAll('.sd-port-filter');
+const portItems  = document.querySelectorAll('.sd-port-item');
+
+if (filterBtns.length > 0) {
+    filterBtns.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            // Update active button
+            filterBtns.forEach(function(b) { b.classList.remove('is-active'); });
+            btn.classList.add('is-active');
+
+            const filter = btn.getAttribute('data-filter');
+
+            portItems.forEach(function(item) {
+                if (filter === 'all') {
+                    item.classList.remove('is-hidden');
+                } else {
+                    const itemFilter = item.getAttribute('data-filter');
+                    if (itemFilter && itemFilter.includes(filter)) {
+                        item.classList.remove('is-hidden');
+                    } else {
+                        item.classList.add('is-hidden');
+                    }
+                }
+            });
+        });
+    });
+}
