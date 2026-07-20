@@ -10,14 +10,24 @@ document.addEventListener('DOMContentLoaded', function () {
     // 1. STICKY HEADER ON SCROLL
     // -------------------------------------------------------
     const header = document.getElementById('sd-header');
-    if (header) {
-        window.addEventListener('scroll', function () {
-            if (window.scrollY > 20) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
+    const siteLogo = document.getElementById('site-logo');
+
+    const updateHeaderState = function () {
+        const scrolled = window.scrollY > 20;
+
+        if (header) {
+            header.classList.toggle('scrolled', scrolled);
+        }
+
+        if (siteLogo) {
+            const nextSrc = scrolled ? siteLogo.dataset.scrolledSrc : siteLogo.dataset.defaultSrc;
+            siteLogo.src = nextSrc;
+        }
+    };
+
+    if (header || siteLogo) {
+        updateHeaderState();
+        window.addEventListener('scroll', updateHeaderState, { passive: true });
     }
 
 
@@ -59,7 +69,62 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     // -------------------------------------------------------
-    // 3. SCROLL ANIMATIONS (Intersection Observer)
+    // 3. SEARCH TOGGLE
+    // -------------------------------------------------------
+    const searchToggle = document.getElementById('sd-search-toggle');
+    const searchPanel = document.getElementById('sd-search-panel');
+    const searchInput = document.getElementById('sd-search-input');
+
+    if (searchToggle && searchPanel) {
+        const openSearchPanel = function () {
+            searchToggle.classList.add('is-open');
+            searchToggle.setAttribute('aria-expanded', 'true');
+            searchPanel.hidden = false;
+            searchPanel.classList.add('is-open');
+            requestAnimationFrame(function () {
+                if (searchInput) {
+                    searchInput.focus();
+                }
+            });
+        };
+
+        const closeSearchPanel = function () {
+            searchToggle.classList.remove('is-open');
+            searchToggle.setAttribute('aria-expanded', 'false');
+            searchPanel.hidden = true;
+            searchPanel.classList.remove('is-open');
+        };
+
+        searchToggle.addEventListener('click', function (event) {
+            event.stopPropagation();
+            const isOpen = searchToggle.getAttribute('aria-expanded') === 'true';
+            if (isOpen) {
+                closeSearchPanel();
+            } else {
+                openSearchPanel();
+            }
+        });
+
+        searchPanel.addEventListener('click', function (event) {
+            event.stopPropagation();
+        });
+
+        document.addEventListener('click', function (event) {
+            if (!searchPanel.contains(event.target) && !searchToggle.contains(event.target)) {
+                closeSearchPanel();
+            }
+        });
+
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape') {
+                closeSearchPanel();
+            }
+        });
+    }
+
+
+    // -------------------------------------------------------
+    // 4. SCROLL ANIMATIONS (Intersection Observer)
     // -------------------------------------------------------
     const animateEls = document.querySelectorAll('.sd-animate, .sd-animate--left, .sd-animate--right');
 
