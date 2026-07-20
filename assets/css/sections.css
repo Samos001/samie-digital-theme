@@ -2397,6 +2397,21 @@
     gap: var(--space-8);
     align-items: start;
 }
+
+/* Post content column */
+.sd-post__content {
+    width: 100%;
+    min-width: 0;
+    background: var(--color-white);
+    padding: var(--space-6);
+    border-radius: var(--radius-lg);
+    border: 1.5px solid var(--color-border);
+}
+
+/* Post sidebar column */
+.sd-post__sidebar {
+    width: 100%;
+}
  
 .sd-post-meta {
     display: flex;
