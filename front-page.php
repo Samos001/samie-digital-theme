@@ -72,12 +72,27 @@ get_header();
     <div class="sd-container">
         <p class="sd-clients__label">Trusted by growing businesses across the US, UK &amp; Canada</p>
         <div class="sd-clients__logos">
-            <span class="sd-client-logo">TechCorp</span>
-            <span class="sd-client-logo">GrowthLab</span>
-            <span class="sd-client-logo">Nova Media</span>
-            <span class="sd-client-logo">Apex Co.</span>
-            <span class="sd-client-logo">BuildRight</span>
-            <span class="sd-client-logo">Verdant</span>
+            <?php
+            $client_logos = array(
+                array( 'file' => 'client-1.png', 'name' => 'RDB Consulting LLC' ),
+                array( 'file' => 'client-2.png', 'name' => 'Abana City Arena' ),
+                array( 'file' => 'client-3.png', 'name' => 'SKYY PRO' ),
+                array( 'file' => 'client-4.png', 'name' => 'Lone Star State Que' ),
+                array( 'file' => 'client-5.png', 'name' => 'MODSUN Organic Skincare' ),
+                array( 'file' => 'client-6.png', 'name' => 'DON-B' ),
+            );
+            foreach ( $client_logos as $logo ) :
+                $logo_path = get_template_directory_uri() . '/assets/images/clients/' . $logo['file'];
+            ?>
+            <div class="sd-client-logo-wrap">
+                <img
+                    src="<?php echo esc_url( $logo_path ); ?>"
+                    alt="<?php echo esc_attr( $logo['name'] ); ?>"
+                    class="sd-client-logo-img"
+                    loading="lazy"
+                >
+            </div>
+            <?php endforeach; ?>
         </div>
     </div>
 </section>
@@ -353,17 +368,42 @@ get_header();
         <div class="sd-grid-4 sd-mt-6">
             <?php
             $team = array(
-                array( 'name' => 'Samuel A.',  'role' => 'Founder & Creative Director', 'bio' => '10+ years helping brands grow online. Specializes in strategy and web design.', 'initials' => 'SA', 'color' => '#0D1B4B' ),
-                array( 'name' => 'Jane D.',    'role' => 'Lead Web Developer',           'bio' => 'WordPress expert with 200+ sites built. Speed and clean code are her signatures.', 'initials' => 'JD', 'color' => '#1A2F6E' ),
-                array( 'name' => 'Michael K.', 'role' => 'Brand Designer',               'bio' => 'Logo and brand identity specialist. Makes brands look like a million dollars.', 'initials' => 'MK', 'color' => '#F97316' ),
-                array( 'name' => 'Lisa N.',    'role' => 'Digital Marketing Lead',       'bio' => 'SEO strategist and content expert. Gets clients found by the right people online.', 'initials' => 'LN', 'color' => '#64748B' ),
+            array(
+                'name'  => 'Samuel O.',
+                'role'  => 'Founder & Creative Director',
+                'bio'   => '10+ years helping brands grow online. Specializes in strategy and web design.',
+                'photo' => 'team-1.png',
+            ),
+            array(
+                'name'  => 'Daniel F.',
+                'role'  => 'Lead Web Developer',
+                'bio'   => 'WordPress expert with 200+ sites built. Speed and clean code are his signatures.',
+                'photo' => 'team-2.jpg',
+            ),
+            array(
+                'name'  => 'Israel O.',
+                'role'  => 'Brand Designer',
+                'bio'   => 'Logo and brand identity specialist. Makes brands look like a million dollars.',
+                'photo' => 'team-3.png',
+            ),
+            array(
+                'name'  => 'Lisa N.',
+                'role'  => 'Digital Marketing Lead',
+                'bio'   => 'SEO strategist and content expert. Gets clients found by the right people online.',
+                'photo' => 'team-4.png',
+            ),
             );
             foreach ( $team as $index => $member ) :
                 $delay = 'sd-delay-' . ( $index + 1 );
             ?>
             <div class="sd-team-card sd-animate <?php echo $delay; ?>">
-                <div class="sd-team-card__avatar" style="background:<?php echo $member['color']; ?>">
-                    <?php echo esc_html( $member['initials'] ); ?>
+                <div class="sd-team-card__photo-wrap">
+                    <img
+                        src="<?php echo get_template_directory_uri(); ?>/assets/images/team/<?php echo esc_attr( $member['photo'] ); ?>"
+                        alt="<?php echo esc_attr( $member['name'] ); ?>"
+                        class="sd-team-card__photo"
+                        loading="lazy"
+                    >
                 </div>
                 <h3 class="sd-team-card__name"><?php echo esc_html( $member['name'] ); ?></h3>
                 <p class="sd-team-card__role"><?php echo esc_html( $member['role'] ); ?></p>

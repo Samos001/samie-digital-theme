@@ -276,24 +276,36 @@
     gap: 0;
 }
 
-.sd-client-logo {
-    padding: 10px 28px;
-    font-family: var(--font-heading);
-    font-size: var(--text-sm);
-    font-weight: 700;
-    color: var(--color-slate-light);
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    border-right: 1px solid var(--color-border);
-    transition: color var(--transition-fast);
+.sd-clients__logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0;
 }
 
-.sd-client-logo:last-child {
+.sd-client-logo-wrap {
+    padding: 10px 28px;
+    border-right: 1px solid var(--color-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sd-client-logo-wrap:last-child {
     border-right: none;
 }
 
-.sd-client-logo:hover {
-    color: var(--color-slate);
+.sd-client-logo-img {
+    height: 36px;
+    width: auto;
+    object-fit: contain;
+    filter: grayscale(100%) opacity(50%);
+    transition: filter var(--transition-base);
+}
+
+.sd-client-logo-img:hover {
+    filter: grayscale(0%) opacity(100%);
 }
 
 
@@ -2815,4 +2827,24 @@
         width: 100%;
         justify-content: center;
     }
+}
+
+.sd-team-card__photo-wrap {
+    width: 80px;
+    height: 80px;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin: 0 auto var(--space-2);
+}
+
+.sd-team-card__photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    transition: transform var(--transition-base);
+}
+
+.sd-team-card:hover .sd-team-card__photo {
+    transform: scale(1.05);
 }
