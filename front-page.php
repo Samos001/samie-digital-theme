@@ -51,41 +51,13 @@ get_header();
 
             <!-- Right Column -->
             <div class="sd-hero__visual sd-animate sd-animate--right sd-delay-3">
-                <div class="sd-hero__card">
-                    <div class="sd-hero__browser">
-                        <div class="sd-browser__dots">
-                            <span style="background:#ff5f57"></span>
-                            <span style="background:#febc2e"></span>
-                            <span style="background:#28c840"></span>
-                        </div>
-                        <div class="sd-browser__bar"></div>
-                        <div class="sd-browser__content">
-                            <div class="sd-browser__hero-block"></div>
-                            <div class="sd-browser__row">
-                                <div class="sd-browser__block"></div>
-                                <div class="sd-browser__block"></div>
-                            </div>
-                            <div class="sd-browser__line"></div>
-                            <div class="sd-browser__line sd-browser__line--short"></div>
-                        </div>
-                    </div>
-                    <div class="sd-hero__stats">
-                        <div class="sd-hero__stat">
-                            <div class="sd-stat-number" data-target="50">0</div>
-                            <div class="sd-stat-plus">+</div>
-                            <div class="sd-stat-label">Projects</div>
-                        </div>
-                        <div class="sd-hero__stat">
-                            <div class="sd-stat-number" data-target="10">0</div>
-                            <div class="sd-stat-plus">+</div>
-                            <div class="sd-stat-label">Countries</div>
-                        </div>
-                        <div class="sd-hero__stat">
-                            <div class="sd-stat-number" data-target="98">0</div>
-                            <div class="sd-stat-plus">%</div>
-                            <div class="sd-stat-label">Satisfaction</div>
-                        </div>
-                    </div>
+                <div class="sd-hero__photo-wrap">
+                    <img 
+                        src="<?php echo get_template_directory_uri(); ?>/assets/images/Samie.png" 
+                        alt="Samie — Founder, Samie Digital"
+                        class="sd-hero__photo"
+                        loading="eager"
+                >
                 </div>
             </div>
 
